@@ -1,0 +1,20 @@
+[project]
+name = "gha-versioned-docs"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { email = "phillip.mitchel.williams@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "pytest>=8.4.1",
+    "pytest-cov>=6.2.1",
+]
+
+[project.scripts]
+gha-versioned-docs = "gha_versioned_docs:main"
+
+[build-system]
+requires = ["uv_build>=0.8.3,<0.9.0"]
+build-backend = "uv_build"
