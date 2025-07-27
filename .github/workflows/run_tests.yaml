@@ -28,4 +28,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ github.ref }}
-          path: /documentation/build
+          path: ./documentation/build
