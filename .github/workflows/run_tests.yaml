@@ -20,3 +20,7 @@ jobs:
           version: "latest"
       - name: Install dependencies
         run: make sync
+      - name: Run tests
+        run: make tests
+      - name: Build docs
+        run: make docs
