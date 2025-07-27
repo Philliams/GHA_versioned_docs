@@ -21,6 +21,11 @@ jobs:
       - name: Install dependencies
         run: make sync
       - name: Run tests
-        run: make tests
+        run: make test
       - name: Build docs
         run: make docs
+      - name: Upload artifacts for docs
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.ref }}
+          path: /documentation/build
