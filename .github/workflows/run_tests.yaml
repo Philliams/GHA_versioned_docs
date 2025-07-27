@@ -27,5 +27,5 @@ jobs:
       - name: Upload artifacts for docs
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ github.ref//\//_ }}
+          name: ${${{ github.ref}}//\//_ }
           path: ./documentation/build
