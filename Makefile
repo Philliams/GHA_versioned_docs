@@ -34,7 +34,10 @@ combined_docs:
 	-rm -rf ./download
 	-mkdir ./download
 	gh release list --json tagName --exclude-drafts --jq '.[].tagName' \
-	| xargs -I % gh release download --dir ./download
+	| xargs -ITAG gh release download -D ./download/ TAG
+	uv run src/gha_versioned_docs/script.py
+	
+
 
 sync:
 	uv sync

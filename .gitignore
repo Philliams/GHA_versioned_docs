@@ -2,4 +2,4 @@
 .coverage
 *.pyc
 *.zip
-./download/*
+download/
