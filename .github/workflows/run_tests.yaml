@@ -1,4 +1,3 @@
-# Built from this template : https://github.com/actions/setup-python
 name: Python-Full-CI
 
 on:
