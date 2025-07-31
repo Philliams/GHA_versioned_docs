@@ -6,15 +6,18 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'gha-docs'
+project = 'combined-docs'
 copyright = '2025, pwilliams'
 author = 'pwilliams'
-release = '0.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = []
+ext_name = 'gha_versioned_docs.extension'
+
+extensions = [
+    ext_name
+]
 
 templates_path = ['_templates']
 exclude_patterns = []
