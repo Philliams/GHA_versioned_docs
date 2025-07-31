@@ -1,5 +1,7 @@
 import os
 import shutil
+import json
+import time
 
 def list_immediate_directories_os(path):
     """
@@ -16,11 +18,9 @@ def generate_index_page(static_directories, sku_info, version_info):
     rst_string += f"\n" + (len(rst_string) * "=")
 
     for dir_ in static_directories:
-        rst_string += "\n" + make_link(dir_.name, f"_static/{sku_info}/{version_info}/{dir_.name}/index.html")
+        rst_string += "\n" + make_link(dir_.name, f"../../_static/{sku_info}/{version_info}/{dir_.name}/index.html")
 
     return rst_string
-
-
 
 if __name__ == "__main__":
 
@@ -34,7 +34,7 @@ if __name__ == "__main__":
 
     # metadata
     sku_info = "ADF"
-    version_info = "AIA_2506"
+    version_info = f"AIA_2506_{time.time()}"
 
     # identify all dirs to copy
     static_subdirs = list_immediate_directories_os(temp_dir_path)
@@ -54,9 +54,17 @@ if __name__ == "__main__":
             f"{temp_dir_path}/{subdir.name}",
             f"{static_dir}/{sku_info}/{version_info}/{subdir.name}"
         )
-    # index_rst = generate_index_page(static_subdirs, sku_info, version_info)
 
-    # with open(output_dir + f"/gen_docs.rst", mode="w+") as f:
-    #     f.write(index_rst)
+    index_rst = generate_index_page(static_subdirs, sku_info, version_info)
 
-    # move_assets_to_correct_location(static_subdirs, static_dir, sku_info, version_info)
+    with open(output_dir + "/gen_docs.rst", mode="w+") as f:
+        f.write(index_rst)
+
+    with open(output_dir + "/metadata.json", mode="w+") as f:
+        json.dump(
+            {
+                'sku': sku_info,
+                'version': version_info
+            },
+            f
+        )

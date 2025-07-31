@@ -7,4 +7,4 @@ This is the main entrypoint for all of the documentation
     :maxdepth: 2
     :glob:
 
-    ./version*/**
+    ./release_artifacts**
