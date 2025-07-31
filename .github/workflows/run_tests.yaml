@@ -25,8 +25,10 @@ jobs:
         run: make test
       - name: Generate Release
         run: make release
-      - name: Generate combined docs
+      - name: Generate combined gdocs
         run: make combined_docs
+      - name: Debugging
+        run: ls ./documentation/combined_docs/build/
       - name: Deploy documentation to gh-pages
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/main' }}
