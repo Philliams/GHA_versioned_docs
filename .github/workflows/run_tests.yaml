@@ -23,8 +23,6 @@ jobs:
         run: make sync
       - name: Run tests
         run: make test
-      - name: Build docs
-        run: make docs
       - name: Generate Release
         run: make release
       - name: Generate combined docs
